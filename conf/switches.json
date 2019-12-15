@@ -1,0 +1,23 @@
+﻿[
+  {
+    "$type": "homeControl.Domain.SwitchConfiguration, homeControl.Domain",
+    "SwitchId": "B9250AA6-9FEC-49C5-9947-ACEDD2DB9115",
+    "SwitchKind": "Gradient",
+    "Name": "Зал - основной",
+    "Description": "Люстра - белые галогеновые лампочки"
+  },
+  {
+    "$type": "homeControl.Domain.SwitchConfiguration, homeControl.Domain",
+    "SwitchId": "24AA0725-180C-40A8-A132-B47B901D9093",
+    "SwitchKind": "Toggle",
+    "Name": "Зал - индикатор",
+    "Description": "Люстра - голубые диоды"
+  },
+  {
+    "$type": "homeControl.Domain.SwitchConfiguration, homeControl.Domain",
+    "SwitchId": "567E8945-2AA3-4891-B59B-91B3C077701E",
+    "SwitchKind": "Toggle",
+    "Name": "Коридор",
+    "Description": "Люстра в коридоре"
+  }
+]
