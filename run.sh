@@ -43,6 +43,7 @@ docker run --detach                   \
     -p 25672:25672                    \
     --name homecontrol_rabbitmq       \
     --restart=always                  \
+    --net homecontrol                 \
     svtz/homecontrol:rabbitmq-arm32v7 > /dev/null
 for tick in (1..120)
 do
@@ -57,6 +58,7 @@ docker run --detach                       \
     --volume conf:/app/conf               \
     --name homecontrol_configstore        \
     --restart=always                      \
+    --net homecontrol                     \
     svtz/homecontrol:config-store-arm32v7 > /dev/null
 echo "OK"
 
@@ -65,6 +67,7 @@ docker pull svtz/homecontrol:controller-arm32v7 > /dev/null
 docker run --detach                     \
     --name homecontrol_controller       \
     --restart=always                    \
+    --net homecontrol                   \
     svtz/homecontrol:controller-arm32v7 > /dev/null
 echo "OK"
 
@@ -75,6 +78,7 @@ docker run --detach                  \
     --restart=always                 \
     --privileged                     \
     -v /dev/bus/usb:/dev/bus/usb     \
+    --net homecontrol                \
     svtz/homecontrol:noolite-arm32v7 > /dev/null
 echo "OK"
 
