@@ -22,7 +22,7 @@ remove_container () {
 }
 
 
-remove_container "homecontrol_noolite"
+remove_container "homecontrol_noolitef"
 remove_container "homecontrol_controller"
 remove_container "homecontrol_configstore"
 remove_container "homecontrol_rabbitmq"
@@ -34,7 +34,7 @@ docker network create homecontrol > /dev/null
 echo "OK"
 
 printf "Starting homecontrol_rabbitmq. This will take a few minutes..."
-docker pull svtz/homecontrol:rabbitmq-arm32v7 > /dev/null
+docker pull svtz/homecontrol:rabbitmq-arm64v8 > /dev/null
 printf "."
 docker run --detach                   \
     -p 4369:4369                      \
@@ -43,7 +43,8 @@ docker run --detach                   \
     -p 25672:25672                    \
     --name homecontrol_rabbitmq       \
     --restart=always                  \
-    svtz/homecontrol:rabbitmq-arm32v7 > /dev/null
+    --net homecontrol                 \
+    svtz/homecontrol:rabbitmq-arm64v8 > /dev/null
 for tick in (1..120)
 do
     printf "."
@@ -52,30 +53,33 @@ done
 printf "\nOK"
 
 echo "Starting homecontrol_configstore..."
-docker pull svtz/homecontrol:config-store-arm32v7 > /dev/null
+docker pull svtz/homecontrol:config-store-arm64v8 > /dev/null
 docker run --detach                       \
     --volume conf:/app/conf               \
     --name homecontrol_configstore        \
     --restart=always                      \
-    svtz/homecontrol:config-store-arm32v7 > /dev/null
+    --net homecontrol                     \
+    svtz/homecontrol:config-store-arm64v8 > /dev/null
 echo "OK"
 
 echo "Starting homecontrol_controller..."
-docker pull svtz/homecontrol:controller-arm32v7 > /dev/null
+docker pull svtz/homecontrol:controller-arm64v8 > /dev/null
 docker run --detach                     \
     --name homecontrol_controller       \
     --restart=always                    \
-    svtz/homecontrol:controller-arm32v7 > /dev/null
+    --net homecontrol                   \
+    svtz/homecontrol:controller-arm64v8 > /dev/null
 echo "OK"
 
-echo "Starting homecontrol_noolite..."
-docker pull svtz/homecontrol:noolite-arm32v7 > /dev/null
-docker run --detach                  \
-    --name homecontrol_noolite       \
-    --restart=always                 \
-    --privileged                     \
-    -v /dev/bus/usb:/dev/bus/usb     \
-    svtz/homecontrol:noolite-arm32v7 > /dev/null
+echo "Starting homecontrol_noolitef..."
+docker pull svtz/homecontrol:noolite-f-arm64v8 > /dev/null
+docker run --detach                    \
+    --name homecontrol_noolitef        \
+    --restart=always                   \
+    --privileged                       \
+    --volume /dev/serial:/dev/serial   \
+    --net homecontrol                  \
+    svtz/homecontrol:noolite-f-arm64v8 > /dev/null
 echo "OK"
 
 echo "COMPLETE"
