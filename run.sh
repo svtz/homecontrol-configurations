@@ -1,17 +1,12 @@
 #!/bin/bash
-
 # exit when any command fails
 set -e
 
-# keep track of the last executed command
-trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
-# echo an error message before exiting
-trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
-
 remove_container () {
-    echo "Removing $1..."
+    echo -n "Removing $1..."
     containerId=$(docker ps -a -q --filter name=$1)
-    if [ -z "containerId" ]
+
+    if [ -z "$containerId" ]
     then
         echo "No such container, skipped"
     else
@@ -21,64 +16,63 @@ remove_container () {
     fi
 }
 
-
 remove_container "homecontrol_noolite"
 remove_container "homecontrol_controller"
 remove_container "homecontrol_configstore"
 remove_container "homecontrol_rabbitmq"
-
-echo "Recreating network homecontrol..."
+echo -n "Recreating network homecontrol..."
 networkId=$(docker network ls -q --filter name=homecontrol)
 [ ! -z "$networkId" ] && docker network rm $networkId > /dev/null
 docker network create homecontrol > /dev/null
 echo "OK"
 
-printf "Starting homecontrol_rabbitmq. This will take a few minutes..."
+echo -n "Starting homecontrol_rabbitmq. This will take a few minutes..."
 docker pull svtz/homecontrol:rabbitmq-arm32v7 > /dev/null
-printf "."
-docker run --detach                   \
-    -p 4369:4369                      \
-    -p 5671:5671                      \
-    -p 5672:5672                      \
-    -p 25672:25672                    \
-    --name homecontrol_rabbitmq       \
-    --restart=always                  \
-    --net homecontrol                 \
+echo -n "."
+docker run --detach \
+    -p 4369:4369 \
+    -p 5671:5671 \
+    -p 5672:5672 \
+    -p 25672:25672 \
+    --name homecontrol_rabbitmq \
+    --restart=always \
+    --net homecontrol \
     svtz/homecontrol:rabbitmq-arm32v7 > /dev/null
-for tick in (1..120)
+
+for tick in {1..120}
 do
-    printf "."
+    echo -n "."
     sleep 1s
 done
-printf "\nOK"
+echo "OK"
 
-echo "Starting homecontrol_configstore..."
+echo -n "Starting homecontrol_configstore..."
 docker pull svtz/homecontrol:config-store-arm32v7 > /dev/null
-docker run --detach                       \
-    --volume conf:/app/conf               \
-    --name homecontrol_configstore        \
-    --restart=always                      \
-    --net homecontrol                     \
+docker run --detach \
+    --volume /home/svtz/homecontrol/conf:/app/conf \
+    --name homecontrol_configstore \
+    --restart=always \
+    --net homecontrol \
     svtz/homecontrol:config-store-arm32v7 > /dev/null
 echo "OK"
 
-echo "Starting homecontrol_controller..."
+echo -n "Starting homecontrol_controller..."
 docker pull svtz/homecontrol:controller-arm32v7 > /dev/null
-docker run --detach                     \
-    --name homecontrol_controller       \
-    --restart=always                    \
-    --net homecontrol                   \
+docker run --detach \
+    --name homecontrol_controller \
+    --restart=always \
+    --net homecontrol \
     svtz/homecontrol:controller-arm32v7 > /dev/null
 echo "OK"
 
-echo "Starting homecontrol_noolite..."
+echo -n "Starting homecontrol_noolite..."
 docker pull svtz/homecontrol:noolite-arm32v7 > /dev/null
-docker run --detach                  \
-    --name homecontrol_noolite       \
-    --restart=always                 \
-    --privileged                     \
-    -v /dev/bus/usb:/dev/bus/usb     \
-    --net homecontrol                \
+docker run --detach \
+    --name homecontrol_noolite \
+    --restart=always \
+    --privileged \
+    --volume /dev/bus/usb:/dev/bus/usb \
+    --net homecontrol \
     svtz/homecontrol:noolite-arm32v7 > /dev/null
 echo "OK"
 
