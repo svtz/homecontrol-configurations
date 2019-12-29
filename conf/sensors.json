@@ -1,6 +1,22 @@
 ﻿[
-  {
-    "$type": "homeControl.Domain.SensorConfiguration, homeControl.Domain",
-    "SensorId": "1f94da1e-6fc8-4977-ab9a-96654adcacb8"
-  }
+    {
+        "$type": "homeControl.Domain.Configuration.SensorConfiguration, homeControl.Domain",
+        "SensorId": "1f94da1e-6fc8-4977-ab9a-96654adcacb8",
+        "Description": "Датчик включения подсветки рабочей зоны кухни"
+    },
+    {
+        "$type": "homeControl.Domain.Configuration.SensorConfiguration, homeControl.Domain",
+        "SensorId": "26236b79-c8e1-437f-a968-19b024d35a03",
+        "Description": "Датчик температуры в ванной"
+    },
+    {
+        "$type": "homeControl.Domain.Configuration.SensorConfiguration, homeControl.Domain",
+        "SensorId": "fdfff06a-b407-40ad-b129-fdc425d2195f",
+        "Description": "Датчик влажности в ванной"
+    },
+    {
+        "$type": "homeControl.Domain.Configuration.SensorConfiguration, homeControl.Domain",
+        "SensorId": "e4b826d2-5d5c-46a4-a5dd-d5f57c3e6f8b",
+        "Description": "Датчик температуры на балконе"
+    }
 ]

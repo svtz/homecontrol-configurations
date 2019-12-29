@@ -1,8 +1,25 @@
 ﻿[
-  {
-    "$type": "homeControl.Domain.Configuration.Bindings.OnOffBinding, homeControl.Domain",
-    "SwitchId": "ac27f946-79fe-4c10-85bd-c72454e152fb",
-    "SensorId": "1f94da1e-6fc8-4977-ab9a-96654adcacb8",
-    "Mode": "OnOnly"
-  }
+    {
+        "$type": "homeControl.Domain.Configuration.Bindings.OnOffBinding, homeControl.Domain",
+        "SwitchId": "ac27f946-79fe-4c10-85bd-c72454e152fb",
+        "SensorId": "1f94da1e-6fc8-4977-ab9a-96654adcacb8",
+        "Mode": "OnOnly",
+        "Description": "Включение подсветки рабочей зоны по датчику"
+    },
+    {
+        "$type": "homeControl.Domain.Configuration.Bindings.ThresholdBinding, homeControl.Domain",
+        "SwitchId": "8589b218-8c08-409e-b0dc-669df545cdfd",
+        "SensorId": "fdfff06a-b407-40ad-b129-fdc425d2195f",
+        "Threshold": 50,
+        "Operator": "GreaterThanThreshold",
+        "Description": "Включение вытяжки в ванной"
+    },
+    {
+        "$type": "homeControl.Domain.Configuration.Bindings.ThresholdBinding, homeControl.Domain",
+        "SwitchId": "f51d4b6c-ef39-43ce-9d1b-90f6a3e926c7",
+        "SensorId": "e4b826d2-5d5c-46a4-a5dd-d5f57c3e6f8b",
+        "Threshold": 20,
+        "Operator": "LessThanThreshold",
+        "Description": "Включение тёплого пола на балконе"
+    }
 ]
