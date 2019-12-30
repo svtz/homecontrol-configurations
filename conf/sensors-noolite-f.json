@@ -17,5 +17,65 @@
         "Channel": 14,
         "TemperatureSensorId": "e4b826d2-5d5c-46a4-a5dd-d5f57c3e6f8b",
         "Description": "Датчик температуры на балконе"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 18,
+        "SensorId": "bfad6c6e-635f-48e8-ad80-7396cc9f0ac1",
+        "Description": "Выключатель коридора"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 19,
+        "SensorId": "bd69050d-75f8-45e8-854a-55f2ff8db453",
+        "Description": "Выключатель зала"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 20,
+        "SensorId": "23c74bd9-90cd-4f71-927d-831b32bd008b",
+        "Description": "Выключатель бра в зале"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 21,
+        "SensorId": "50264abc-c2da-4f3b-a63c-ed8e226b66a2",
+        "Description": "Выключатель спальни"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 22,
+        "SensorId": "753a2072-c042-4445-a0da-9b8a8c14a41e",
+        "Description": "Выключатель бра в спальне"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 23,
+        "SensorId": "aec8cdde-9e64-4002-871d-9fd8c077228a",
+        "Description": "Выключатель коридора (ещё один)"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 24,
+        "SensorId": "7d8ecc4c-94a8-46f4-ad23-f9a8aafaadd0",
+        "Description": "Выключатель подсветки рабочей зоны кухни"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 25,
+        "SensorId": "6008197e-0746-46e5-9bf6-985dd41fd8b4",
+        "Description": "Выключатель кухни"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 26,
+        "SensorId": "545d23c5-ea6b-441b-a17e-9ca83e0193a3",
+        "Description": "Выключатель ванной"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.OnOffNooliteFSensorInfo, homeControl.NooliteF",
+        "Channel": 27,
+        "SensorId": "cd2890c8-abfc-4c5f-9152-f55512993d4e",
+        "Description": "Выключатель балкона"
     }
 ]

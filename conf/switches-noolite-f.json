@@ -106,5 +106,14 @@
         "ZeroPowerLevel": "0",
         "UseF": false,
         "Description": "Ёлка"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.NooliteFSwitchInfo, homeControl.NooliteF",
+        "SwitchId": "3176d820-74bb-4d39-853b-9c5dff58d7d0",
+        "Channel": 17,
+        "FullPowerLevel": "1",
+        "ZeroPowerLevel": "0",
+        "UseF": false,
+        "Description": "Удлинитель 2"
     }
 ]

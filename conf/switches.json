@@ -94,5 +94,13 @@
         "Name": "Ёлка!",
         "Description": "Гирлянды на ёлке!",
         "ShowOnUi": true
+    },
+    {
+        "$type": "homeControl.Domain.Configuration.SwitchConfiguration, homeControl.Domain",
+        "SwitchId": "3176d820-74bb-4d39-853b-9c5dff58d7d0",
+        "SwitchKind": "Toggle",
+        "Name": "Удлинитель 2",
+        "Description": "Пригодится",
+        "ShowOnUi": false
     }
 ]
