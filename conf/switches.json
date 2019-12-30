@@ -86,5 +86,13 @@
         "Name": "Тёплый пол балкон",
         "Description": "Тёплый пол на балконе",
         "ShowOnUi": true
+    },
+    {
+        "$type": "homeControl.Domain.Configuration.SwitchConfiguration, homeControl.Domain",
+        "SwitchId": "01f6d0bf-bd76-46ca-bad3-e1214d0453d2",
+        "SwitchKind": "Toggle",
+        "Name": "Ёлка!",
+        "Description": "Гирлянды на ёлке!",
+        "ShowOnUi": true
     }
 ]

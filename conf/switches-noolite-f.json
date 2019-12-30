@@ -64,15 +64,6 @@
     },
     {
         "$type": "homeControl.NooliteF.Configuration.NooliteFSwitchInfo, homeControl.NooliteF",
-        "SwitchId": "cb7c0999-5e74-46ec-92cc-d52ad613e278",
-        "Channel": 7,
-        "FullPowerLevel": "1",
-        "ZeroPowerLevel": "0",
-        "UseF": true,
-        "Description": "Спальня"
-    },
-    {
-        "$type": "homeControl.NooliteF.Configuration.NooliteFSwitchInfo, homeControl.NooliteF",
         "SwitchId": "385777ba-6255-4ec5-a80c-78b0b83d6c6d",
         "Channel": 9,
         "FullPowerLevel": "1",
@@ -97,5 +88,23 @@
         "ZeroPowerLevel": "0",
         "UseF": true,
         "Description": "Тёплый пол на балконе"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.NooliteFSwitchInfo, homeControl.NooliteF",
+        "SwitchId": "cb7c0999-5e74-46ec-92cc-d52ad613e278",
+        "Channel": 15,
+        "FullPowerLevel": "1",
+        "ZeroPowerLevel": "0",
+        "UseF": true,
+        "Description": "Спальня"
+    },
+    {
+        "$type": "homeControl.NooliteF.Configuration.NooliteFSwitchInfo, homeControl.NooliteF",
+        "SwitchId": "01f6d0bf-bd76-46ca-bad3-e1214d0453d2",
+        "Channel": 16,
+        "FullPowerLevel": "1",
+        "ZeroPowerLevel": "0",
+        "UseF": false,
+        "Description": "Ёлка"
     }
 ]
