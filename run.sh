@@ -50,6 +50,8 @@ echo -n "Starting homecontrol_configstore..."
 docker pull svtz/homecontrol:config-store-arm64v8 > /dev/null
 docker run --detach \
     --volume /home/svtz/homecontrol/conf:/app/conf \
+    --volume /home/svtz/homecontrol/logs/config-store:/app/logs \
+    --volume /home/svtz/homecontrol/license:/app/license \
     --name homecontrol_configstore \
     --restart=always \
     --net homecontrol \
@@ -59,6 +61,8 @@ echo "OK"
 echo -n "Starting homecontrol_controller..."
 docker pull svtz/homecontrol:controller-arm64v8 > /dev/null
 docker run --detach \
+    --volume /home/svtz/homecontrol/logs/controller:/app/logs \
+    --volume /home/svtz/homecontrol/license:/app/license \
     --name homecontrol_controller \
     --restart=always \
     --net homecontrol \
@@ -68,6 +72,8 @@ echo "OK"
 echo -n "Starting homecontrol_noolitef..."
 docker pull svtz/homecontrol:noolite-f-arm64v8 > /dev/null
 docker run --detach \
+    --volume /home/svtz/homecontrol/logs/noolitef:/app/logs \
+    --volume /home/svtz/homecontrol/license:/app/license \
     --name homecontrol_noolitef \
     --restart=always \
     --privileged \
